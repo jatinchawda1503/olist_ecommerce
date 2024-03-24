@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: olist_customers
+    database: dev
+    schema: olist_customers
+    tables:
+      - name: customers
+        desciption: This table contains information about customers
+        columns:
+          - name: customer_id
+            description: key to the orders dataset. Each order has a unique customer_id.
+            tests:
+              - unique
+          - name: customer_unique_id
+            description: unique identifier of a customer
+            tests:
+              - unique
+          - name: customer_zip_code_prefix
+            description: first 5 digits of customer zip code
+            test:
+              - accepted_values: [5]
+          - name: customer_city
+            description: customer city name
+          - name: customer_state
+            description: customer state name

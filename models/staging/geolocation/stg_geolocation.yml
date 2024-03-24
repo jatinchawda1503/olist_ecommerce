@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: olist_geolocation
+    database: dev
+    schema: olist_geolocation
+    tables:
+      - name: geolocation
+        description: This table contains information about geolocation
+        columns:
+          - name: geolocation_zip_code_prefix
+            description: first 5 digits of customer zip code
+          - name: geolocation_lat
+            description: latitude of the geolocation
+          - name: geolocation_lng
+            description: longitude of the geolocation
+          - name: geolocation_city
+            description: geolocation city name
+          - name: geolocation_state
+            description: geolocation state name
