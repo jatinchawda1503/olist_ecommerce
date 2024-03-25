@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: olist_products
+    database: dev
+    schema: olist_products
+    tables:
+      - name: products
+        description: This dataset includes data about the products sold by Olist.
+        columns:
+          - name: product_id
+            description: product unique identifier
+          - name: product_category_name
+            description: root category of product
+          - name: product_name_lenght
+            description: product name length
+          - name: product_description_lenght
+            description: product description length
+          - name: product_photos_qty
+            description: number of product published photos
+          - name: product_weight_g
+            description: product weight in grams
+          - name: product_length_cm
+            description: product length in centimeters
+          - name: product_height_cm
+            description: product height in centimeters
+          - name: product_width_cm
+            description: product width in centimeters

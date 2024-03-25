@@ -1,0 +1,1 @@
+SELECT * from {{ source('olist_product_category','product_category_name_translation') }}

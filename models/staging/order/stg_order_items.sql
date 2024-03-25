@@ -1,0 +1,1 @@
+SELECT * from {{ source('olist_order', 'order_items')}}

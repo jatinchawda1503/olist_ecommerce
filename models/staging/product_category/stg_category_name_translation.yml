@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: olist_product_category
+    database: dev
+    schema: olist_product_category
+    tables:
+      - name: product_category_name_translation
+        description: This dataset includes data about the translation of product category names.
+        columns:
+          - name: product_category_name
+            description: root category of product
+            tests:
+              - unique
+          - name: product_category_name_english
+            description: root category of product in English
+            tests:
+              - not_null

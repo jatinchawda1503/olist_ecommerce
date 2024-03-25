@@ -6,7 +6,7 @@ sources:
     schema: olist_customers
     tables:
       - name: customers
-        desciption: This table contains information about customers
+        description: This table contains information about customers
         columns:
           - name: customer_id
             description: key to the orders dataset. Each order has a unique customer_id.

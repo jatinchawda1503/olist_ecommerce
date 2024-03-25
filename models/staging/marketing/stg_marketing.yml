@@ -1,0 +1,64 @@
+version: 2
+
+sources:
+  - name: olist_marketing
+    database: dev
+    schema: olist_marketing
+    tables:
+      - name: marketing_qualified_leads
+        desciption: After a lead fills in a form at a landing page, a filter is made to select the ones that are qualified to sell their products at Olist. They are the Marketing Qualified Leads (MQLs).
+        columns:
+          - name: mql_id
+            description: Marketing Qualified Lead id
+            tests:
+              - unique
+          - name: first_contact_date
+            description: date of the first contact with the lead
+            tests:
+              - not_null
+          - name: landing_page_id
+            description: identification of the first page that the lead visited before coming to the store
+            tests:
+              - not_null
+          - name: origin
+            description: origin where the lead came from
+            tests:
+              - not_null
+
+      - name: closed_deals
+        desciption: After a qualified lead fills in a form at a landing page he is contacted by a Sales Development Representative. At this step some information is checked and more information about the lead is gathered.
+        columns:
+          - name: mql_id
+            description: MQL unique identifier
+            tests:
+              - unique
+          - name: seller_id
+            description: seller unique identifier
+            tests:
+              - unique
+          - name: sdr_id
+            description: SDR (Sales Development Representative) unique identifier
+            tests:
+              - unique
+          - name: sr_id
+            description: SR (Sales Representative) unique identifier
+          - name: won_date
+            description: date in which the SR marked the MQL as WON
+          - name: business_segment
+            description: lead business segment
+          - name: lead_type
+            description: lead type
+          - name: lead_behaviour_profile
+            description: lead behavior profile
+          - name: has_company
+            description: does the lead have a company?
+          - name: has_gtin
+            description: does the lead have a GTIN number?
+          - name: average_stock
+            description: average stock of the lead products
+          - name: business_type
+            description: Business Type, can be one
+          - name: declared_product_catalog_size
+            description: declared product catalog size
+          - name: declared_monthly_revenue
+            description: declared monthly revenue
