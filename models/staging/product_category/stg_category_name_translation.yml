@@ -5,7 +5,7 @@ sources:
     database: dev
     schema: olist_product_category
     tables:
-      - name: product_category_name_translation
+      - name: product_category_name_translations
         description: This dataset includes data about the translation of product category names.
         columns:
           - name: product_category_name

@@ -34,8 +34,6 @@ models:
   olist_ecommerce:
     # Config indicated by + and applies to all files under models/example/
     staging:
-      customer:
-        +schema: stg_olist_customers
       +materialized: view
     marts:
       +materialized: table
