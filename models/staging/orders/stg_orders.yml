@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: olist_orders
+    database: dev
+    schema: olist_orders
+    tables:
+      - name: orders
+        description: This dataset includes data about the orders placed by customers.
+        columns:
+          - name: order_id
+            description: order unique identifier
+          - name: customer_id
+            description: customer unique identifier
+          - name: order_status
+            description: order status
+            tests:
+              - accepted_values:
+                  values: ['delivered', 'shipped', 'canceled', 'invoiced', 'processing', 'unavailable', 'created', 'approved']
+          - name: order_purchase_timestamp
+            description: Shows the purchase timestamp
+            tests:
+              - not_null
+          - name: order_approved_at
+            description: Shows the payment approval timestamp
+            tests:
+              - not_null
+          - name: order_delivered_carrier_date
+            description: Shows the order carrier delivery date
+          - name: order_delivered_customer_date
+            description: Shows the order customer delivery date
+          - name: order_estimated_delivery_date
+            description: Shows the estimated order delivery date

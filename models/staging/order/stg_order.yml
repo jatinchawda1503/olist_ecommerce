@@ -1,0 +1,89 @@
+version: 2
+
+sources:
+  - name: olist_order
+    database: dev
+    schema: olist_order
+    tables:
+      - name: order_items
+        desciption: This dataset includes data about the items purchased within each order.
+        columns:
+          - name: order_id
+            description: order unique identifier
+            tests:
+              - unique
+          - name: order_item_id
+            description: sequential number identifying number of items included in the same order.
+            tests:
+              - unique
+          - name: product_id
+            description: product unique identifier
+            tests:
+              - unique
+          - name: seller_id
+            description: seller unique identifier
+            tests:
+              - unique
+          - name: shipping_limit_date
+            description: Shows the seller shipping limit date for handling the order over to the logistic partner.
+            tests:
+              - not_null
+          - name: price
+            description: item price
+            tests:
+              - not_null
+          - name: freight_value
+            description: item freight value item (if an order has more than one item the freight value is splitted between items)
+            tests:
+              - not_null
+      - name: order_payments
+        desciption: This dataset includes data about the payments within each order.
+        columns:
+          - name: order_id
+            description: order unique identifier
+            tests:
+              - unique
+          - name: payment_sequential
+            description: a customer may pay an order with more than one payment method. If he does so, a sequence will be created to accommodate all payments.
+            tests:
+              - unique
+          - name: payment_type
+            description: method of payment chosen by the customer
+            tests:
+              - accepted_values:
+                  values: ['credit_card', 'boleto', 'voucher', 'debit_card', 'not_defined']
+          - name: payment_installments
+            description: number of installments chosen by the customer
+            tests:
+              - accepted_values:
+                  values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+                  quote: false
+          - name: payment_value
+            description: transaction value
+            tests:
+              - not_null
+      - name: order_reviews
+        desciption: This dataset includes data about the reviews within each order.
+        columns:
+          - name: review_id
+            description: review unique identifier
+            tests:
+              - unique
+          - name: order_id
+            description: order unique identifier
+            tests:
+              - unique
+          - name: review_score
+            description: review score ranging from 1 to 5
+            tests:
+              - accepted_values:
+                  values: [1, 2, 3, 4, 5]
+                  quote: false
+          - name: review_comment_title
+            description: comment title
+          - name: review_comment_message
+            description: comment message
+          - name: review_creation_date
+            description: date the review was created
+          - name: review_answer_timestamp
+            description: date the seller responded to the review

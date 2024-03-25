@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: olist_sellers
+    database: dev
+    schema: olist_sellers
+    tables:
+      - name: sellers
+        desciption: This dataset includes data about the sellers that sell products in Olist.
+        columns:
+          - name: seller_id
+            description: seller unique identifier
+            tests:
+              - unique
+          - name: seller_zip_code_prefix
+            description: first 5 digits of seller zip code
+            tests:
+              - not_null
+          - name: seller_city
+            description: seller city name
+            tests:
+              - not_null
+          - name: seller_state
+            description: seller state
+            tests:
+              - not_null
