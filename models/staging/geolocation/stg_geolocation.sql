@@ -1,1 +1,1 @@
-SELECT * from {{ source('olist_geolocation', 'geolocation')}}
+SELECT * from {{ source('olist_geolocation', 'geolocation') }}

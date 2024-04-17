@@ -1,1 +1,4 @@
-SELECT * FROM {{ source('olist_customers', 'customers')}}
+SELECT
+    *
+FROM
+    {{ source('olist_customers', 'customers')}}
